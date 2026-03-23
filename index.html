@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pour Mame Fatou ✨ L'Amour Infini ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fef6f9 0%, #ffe9f0 50%, #ffdfe8 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Particules flottantes romantiques */
+        .romantic-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: floatParticle 8s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Menu de navigation luxueux */
+        .menu-nav {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1.8rem;
+            z-index: 1000;
+            background: rgba(255, 245, 248, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 12px 35px;
+            border-radius: 80px;
+            box-shadow: 0 15px 40px rgba(199, 92, 126, 0.25), 0 0 0 1px rgba(255, 200, 215, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .menu-item {
+            background: transparent;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            padding: 10px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            color: #a64b6b;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 235, 240, 0.6);
+        }
+
+        .menu-item i {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            background: linear-gradient(135deg, #ff9bb5, #ff7b9e);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 105, 135, 0.4);
+        }
+
+        .menu-item:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Sections avec décoration */
+        section {
+            min-height: 100vh;
+            padding: 120px 40px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            color: #c75c7e;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::before {
+            content: '✦';
+            position: absolute;
+            left: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #ffb7c9;
+        }
+
+        .section-title::after {
+            content: '✦';
+            position: absolute;
+            right: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #ffb7c9;
+        }
+
+        /* Galerie moderne avec effet miroir */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+            gap: 45px;
+            justify-content: center;
+            width: 100%;
+            max-width: 1400px;
+            margin-top: 20px;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(199, 92, 126, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .photo-card:hover::after {
+            opacity: 1;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.03) translateY(-10px);
+            box-shadow: 0 35px 55px rgba(199, 92, 126, 0.4);
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #c75c7e;
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .photo-card:hover .photo-overlay-icon {
+            opacity: 1;
+        }
+
+        /* Citation overlay élégant */
+        .citation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .citation-card {
+            background: linear-gradient(135deg, #fff5f8, #fff0f4);
+            max-width: 550px;
+            padding: 50px 45px;
+            border-radius: 70px;
+            text-align: center;
+            transform: scale(0.9) rotate(-2deg);
+            transition: all 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+            box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
+            border: 2px solid #ffd4e0;
+            position: relative;
+        }
+
+        .citation-overlay.active .citation-card {
+            transform: scale(1) rotate(0deg);
+        }
+
+        .citation-card i {
+            font-size: 3rem;
+            color: #ff7b9e;
+            margin-bottom: 20px;
+        }
+
+        .citation-card p {
+            font-size: 1.8rem;
+            color: #9e4a68;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .personal-message {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #e67e9e;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #ffbfd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .close-citation {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #ff90b5, #ff6b95);
+            border: none;
+            padding: 12px 40px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .close-citation:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 105, 135, 0.4);
+        }
+
+        /* ========== VIDÉO REDIMENSIONNÉE ET ÉLÉGANTE ========== */
+        .video-section-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .video-container {
+            max-width: 800px;
+            width: 90%;
+            margin: 30px auto;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 35px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            background: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            display: block;
+            border-radius: 35px;
+            object-fit: contain;
+            background: #1a0f12;
+        }
+
+        .video-wrapper.zoom-effect {
+            transform: scale(1.05);
+            box-shadow: 0 40px 70px rgba(199, 92, 126, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 20px;
+            color: #c75c7e;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .video-caption i {
+            font-size: 1.2rem;
+        }
+
+        /* Cœurs animés améliorés */
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            font-size: 2.2rem;
+            z-index: 3000;
+            animation: heartExplosion 1.5s forwards;
+            filter: drop-shadow(0 0 5px rgba(255, 105, 135, 0.8));
+        }
+
+        @keyframes heartExplosion {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-180px) scale(1.4) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        /* Citation dynamique */
+        .quote-luxury {
+            background: rgba(255, 248, 250, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 70px;
+            padding: 50px 60px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            max-width: 900px;
+            margin: 30px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 192, 208, 0.8);
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-luxury::before {
+            content: '“';
+            font-size: 6rem;
+            position: absolute;
+            left: 20px;
+            top: -10px;
+            opacity: 0.2;
+            font-family: serif;
+            color: #c75c7e;
+        }
+
+        /* Surprise section romantique */
+        .surprise-luxury {
+            background: linear-gradient(135deg, #fff0f5, #ffe6ef);
+            border-radius: 80px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 30px 50px rgba(199, 92, 126, 0.2);
+            border: 1px solid #ffd9e5;
+        }
+
+        .special-photo {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+            border: 5px solid white;
+            transition: transform 0.4s;
+        }
+
+        .special-photo:hover {
+            transform: scale(1.02);
+        }
+
+        .surprise-btn {
+            background: linear-gradient(135deg, #ff7b9e, #ff5f86);
+            border: none;
+            padding: 16px 45px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(255, 95, 134, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 95, 134, 0.6);
+        }
+
+        .cake-area {
+            margin-top: 35px;
+            animation: cakeGlow 0.8s ease;
+        }
+
+        .cake-3d {
+            font-size: 110px;
+            filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.2));
+            animation: cakeBounce 0.8s infinite alternate ease-in-out;
+        }
+
+        @keyframes cakeBounce {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-12px); }
+        }
+
+        @keyframes cakeGlow {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #ffecf0, #ffe3ea);
+            font-size: 1rem;
+            color: #b66984;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .menu-nav { gap: 0.8rem; padding: 8px 18px; top: 12px; }
+            .menu-item { font-size: 0.8rem; padding: 6px 16px; }
+            .section-title { font-size: 2rem; }
+            .section-title::before, .section-title::after { display: none; }
+            .quote-luxury { font-size: 1.2rem; padding: 30px 25px; }
+            .special-photo { width: 250px; height: 250px; }
+            .video-container { width: 95%; }
+            .video-wrapper video { max-height: 350px; }
+            .citation-card p { font-size: 1.3rem; }
+            .citation-card { padding: 35px 25px; margin: 20px; }
+        }
+
+        /* Animation d'entrée */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Menu navigation élégant avec icônes -->
+<div class="menu-nav">
+    <button class="menu-item" data-quote="💖 Mon amour, chaque jour à tes côtés est un poème que j'écris avec mon cœur. Tu es la lumière qui éclaire mon existence entière. Je t'aime plus que les étoiles ne brillent. Di Degue sama xoll bi di teuf teufi Ta dila xallat Di rètan ta doumako tay Di fattalikou soun ay jar jar mbeguttè dima begeu ray💖">
+        <i class="fas fa-heart"></i> Citation d'amour
+    </button>
+    <button class="menu-item" data-quote="🎂 Joyeux anniversaire ma princesse Mame Fatou ! Que cette journée soit le début de la plus belle année de ta vie. Chaque seconde passée avec toi est un cadeau précieux. Je te chérirai pour toujours. 🎂">
+        <i class="fas fa-birthday-cake"></i> Joyeux anniversaire
+    </button>
+    <button class="menu-item" data-quote="✈️ Avec toi, chaque voyage devient une aventure magique. Que ce soit au bout du monde ou simplement dans nos rêves, l'important c'est d'être ensemble. Ton amour est mon plus beau périple. ✈️">
+        <i class="fas fa-plane"></i> Voyage
+    </button>
+</div>
+
+<!-- Section Galerie -->
+<section id="gallery-section">
+    <h2 class="section-title">✨ Notre Histoire d'Amour ✨</h2>
+    <div class="gallery" id="photo-gallery"></div>
+    <p style="margin-top: 40px; color: #b45f7c; font-style: italic; font-size: 1rem;">
+        <i class="fas fa-camera"></i> Clique sur une photo pour une surprise magique
+    </p>
+</section>
+
+<!-- Section Vidéo - TAILLE OPTIMISÉE -->
+<section id="video-section">
+    <h2 class="section-title">🎥 Moment Précieux 🎥</h2>
+    <div class="video-section-container">
+        <div class="video-container" id="videoContainer">
+            <div class="video-wrapper" id="videoWrapper">
+                <video id="loveVideo" controls preload="metadata" playsinline>
+                    <source src="video/souvenir.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+            <div class="video-caption">
+                <i class="fas fa-hand-pointer"></i> Clique sur la vidéo pour l'agrandir
+                <i class="fas fa-heart" style="color: #ff6b95;"></i>
+                <i class="fas fa-magic"></i> Des cœurs magiques apparaîtront
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Citations dynamiques -->
+<section id="dynamic-quote-section" style="min-height: 60vh;">
+    <h2 class="section-title">💌 Douces Paroles 💌</h2>
+    <div class="quote-luxury" id="dynamicQuoteDisplay">
+        <i class="fas fa-feather-alt" style="font-size: 2rem; color: #ff7b9e; margin-bottom: 15px; display: block;"></i>
+        Choisis un onglet pour lire une déclaration d'amour...
+    </div>
+</section>
+
+<!-- Section Surprise Spéciale -->
+<section id="surprise-section">
+    <h2 class="section-title">🎁 Une Surprise pour Toi 🎁</h2>
+    <div class="surprise-luxury">
+        <img id="specialSurpriseImg" class="special-photo" src="images/photo1.jpg" alt="Mame Fatou - Mon Trésor" onerror="this.src='https://placehold.co/400x400/ffccd5/c75c7e?text=Notre+Amour+Spécial';">
+        <br>
+        <button id="surpriseBtn" class="surprise-btn">
+            <i class="fas fa-gift"></i> Ouvrir la surprise
+        </button>
+        <div id="cakeReveal" style="min-height: 180px;"></div>
+    </div>
+</section>
+
+<footer>
+    <i class="fas fa-heart" style="color: #ff7b9e;"></i> Pour Mame Fatou, mon étoile, mon bonheur infini. <i class="fas fa-heart" style="color: #ff7b9e;"></i>
+</footer>
+
+<!-- Overlay Citation -->
+<div id="citationOverlay" class="citation-overlay">
+    <div class="citation-card">
+        <i class="fas fa-quote-right"></i>
+        <p id="quoteText">Citation d'amour</p>
+        <div id="personalMsg" class="personal-message">
+            <i class="fas fa-heart"></i> Joyeux anniversaire Mame Fatou, mon amour ❤️
+        </div>
+        <button class="close-citation" id="closeCitationBtn">Fermer</button>
+    </div>
+</div>
+
+<script>
+    // ==================== CONFIGURATION FICHIERS LOCAUX ====================
+    // 📁 INSTRUCTIONS POUR PLACER LES FICHIERS :
+    //
+    // 1. DOSSIER "images" à la racine du projet :
+    //    - photo1.jpg, photo2.jpg, photo3.jpg, photo4.jpg, photo5.jpg (5 photos)
+    //    - special_mome.jpg (photo spéciale pour la surprise)
+    //
+    // 2. DOSSIER "video" à la racine :
+    //    - souvenir.mp4 (votre vidéo - sera automatiquement redimensionnée)
+    //
+    // 3. À la RACINE du projet :
+    //    - romance.mp3 (musique de fond romantique en boucle)
+    //    - anniversaire.mp3 (musique d'anniversaire qui se lance avec la surprise)
+    //
+    // 💡 Si certains fichiers manquent, des placeholders apparaîtront élégamment
+    // ======================================================================
+
+    const photosList = [
+        "images/photo1.jpg",
+        "images/photo2.jpg",
+        "images/photo3.jpg",
+        "images/photo4.jpg",
+        //"images/photo5.jpg"
+    ];
+
+    const loveQuotes = [
+        "Say kaddou dafa méllni taw bi di toxou sama yaram di dindi bépp métit si man",
+        "Dans tes bras, j'ai trouvé ma maison, mon refuge, mon paradis. Rien n'est plus parfait que toi.",
+        "Meun Nani yalla daf la mongnalé ak sama xéll wala sax Boléla si sama xolle Sa tour sax si sama lamigne ba sa youma lay toudou sax doumako tay",
+        "À chaque instant, mon cœur chuchote ton nom : Mame Fatou, mon amour éternel.",
+        "Tu es le plus beau des rêves devenu réalité, ma joie de vivre, mon trésor le plus précieux."
+    ];
+
+    // Génération galerie
+    const galleryContainer = document.getElementById('photo-gallery');
+    function buildGallery() {
+        galleryContainer.innerHTML = '';
+        photosList.forEach((src, idx) => {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Souvenir Mame Fatou ${idx+1}`;
+            img.onerror = function() { this.src = 'https://placehold.co/600x600/ffccd5/c75c7e?text=Photo+Magique'; };
+            card.appendChild(img);
+            const iconSpan = document.createElement('div');
+            iconSpan.className = 'photo-overlay-icon';
+            iconSpan.innerHTML = '<i class="fas fa-heart"></i>';
+            card.appendChild(iconSpan);
+            card.addEventListener('click', () => {
+                document.getElementById('quoteText').innerHTML = `“${loveQuotes[idx]}”`;
+                document.getElementById('personalMsg').innerHTML = `<i class="fas fa-heart"></i> Joyeux anniversaire Mame Fatou, mon amour ❤️`;
+                const overlay = document.getElementById('citationOverlay');
+                overlay.classList.add('active');
+                overlay.style.visibility = 'visible';
+                overlay.style.opacity = '1';
+            });
+            galleryContainer.appendChild(card);
+        });
+    }
+    buildGallery();
+
+    // Fermeture overlay
+    const overlayEl = document.getElementById('citationOverlay');
+    const closeOverlayBtn = document.getElementById('closeCitationBtn');
+    function closeOverlayFunc() {
+        overlayEl.classList.remove('active');
+        overlayEl.style.visibility = 'hidden';
+        overlayEl.style.opacity = '0';
+    }
+    closeOverlayBtn.addEventListener('click', closeOverlayFunc);
+    overlayEl.addEventListener('click', (e) => { if(e.target === overlayEl) closeOverlayFunc(); });
+
+    // Vidéo interactive avec coeurs - TAILLE OPTIMISÉE
+    const videoWrapper = document.getElementById('videoWrapper');
+    const loveVideoEl = document.getElementById('loveVideo');
+
+    function burstHearts() {
+        const heartCount = 20;
+        for(let i = 0; i < heartCount; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            const heartsList = ['❤️', '💖', '💗', '💓', '💕', '❤️‍🔥', '💝', '💘', '💖✨'];
+            heart.innerHTML = heartsList[Math.floor(Math.random() * heartsList.length)];
+            const randomX = Math.random() * window.innerWidth;
+            const randomDelay = Math.random() * 0.3;
+            heart.style.left = randomX + 'px';
+            heart.style.bottom = '30px';
+            heart.style.animationDelay = randomDelay + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 1500);
+        }
+    }
+
+    let zoomActive = false;
+    const videoContainerDiv = document.getElementById('videoContainer');
+
+    function handleVideoZoom() {
+        if(!zoomActive) {
+            videoWrapper.classList.add('zoom-effect');
+            zoomActive = true;
+            burstHearts();
+            // Après 2 secondes, enlever l'effet zoom
+            setTimeout(() => {
+                if(zoomActive) {
+                    videoWrapper.classList.remove('zoom-effect');
+                    zoomActive = false;
+                }
+            }, 2000);
+        } else {
+            videoWrapper.classList.remove('zoom-effect');
+            zoomActive = false;
+            burstHearts();
+        }
+    }
+
+    loveVideoEl.addEventListener('click', (e) => { e.stopPropagation(); handleVideoZoom(); });
+    videoContainerDiv.addEventListener('click', (e) => {
+        if(e.target === videoContainerDiv || e.target === loveVideoEl || videoContainerDiv.contains(e.target)) {
+            handleVideoZoom();
+        }
+    });
+
+    // Menu dynamique avec animations
+    const menuBtns = document.querySelectorAll('.menu-item');
+    const dynamicQuote = document.getElementById('dynamicQuoteDisplay');
+    menuBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const quoteText = btn.getAttribute('data-quote');
+            dynamicQuote.style.opacity = '0';
+            dynamicQuote.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                dynamicQuote.innerHTML = `<i class="fas fa-star" style="color:#ff7b9e; margin-bottom:15px; display:block;"></i> ${quoteText}`;
+                dynamicQuote.style.opacity = '1';
+                dynamicQuote.style.transform = 'scale(1)';
+            }, 200);
+            document.getElementById('dynamic-quote-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+
+    // Gestion musique romantique + anniversaire
+    let romanticAudio = null;
+    let musicStarted = false;
+
+    function initRomanticAudio() {
+        if(!romanticAudio) {
+            romanticAudio = new Audio('romance.mp3');
+            romanticAudio.loop = true;
+            romanticAudio.volume = 0.35;
+        }
+    }
+
+    function startRomanticMusic() {
+        if(!musicStarted && romanticAudio) {
+            romanticAudio.play().then(() => { musicStarted = true; }).catch(e => console.log("Cliquez pour lancer la musique"));
+        }
+    }
+
+    // Premier clic utilisateur pour démarrer la musique
+    document.addEventListener('click', () => {
+        initRomanticAudio();
+        startRomanticMusic();
+    }, { once: true });
+
+    // Surprise spéciale avec gâteau et musique d'anniversaire
+    const surpriseButton = document.getElementById('surpriseBtn');
+    const cakeDiv = document.getElementById('cakeReveal');
+    let surpriseOpened = false;
+
+    surpriseButton.addEventListener('click', () => {
+        if(!surpriseOpened) {
+            cakeDiv.innerHTML = `
+        <div class="cake-area">
+          <div class="cake-3d">🎂✨❤️🎉</div>
+          <p style="font-size: 1.8rem; font-weight: bold; color: #c75c7e; margin-top: 15px;">Joyeux Anniversaire Mame Fatou !</p>
+          <p style="font-size: 1.2rem; color: #b45f7c;">Tu es la plus belle personne de ma vie. Que ce jour soit magique ✨</p>
+        </div>
+      `;
+            surpriseOpened = true;
+
+            // Musique d'anniversaire
+            const birthdayMusic = new Audio('anniversaire.mp3');
+            birthdayMusic.volume = 0.6;
+            birthdayMusic.play().catch(e => console.log("Ajoutez anniversaire.mp3 à la racine"));
+
+            if(!musicStarted && romanticAudio) {
+                romanticAudio.play().catch(e=>{});
+                musicStarted = true;
+            }
+        } else {
+            const existingCake = document.querySelector('.cake-area');
+            if(existingCake) {
+                existingCake.style.animation = 'none';
+                existingCake.offsetHeight;
+                existingCake.style.animation = 'cakeGlow 0.8s ease';
+            }
+            const birthdayMusic = new Audio('anniversaire.mp3');
+            birthdayMusic.volume = 0.6;
+            birthdayMusic.play().catch(e=>{});
+        }
+    });
+
+    // Chargement initial + particules romantiques
+    window.addEventListener('load', () => {
+        initRomanticAudio();
+        // Particules flottantes
+        setInterval(() => {
+            const particle = document.createElement('div');
+            particle.className = 'romantic-particle';
+            particle.innerHTML = ['🌸', '✨', '💖', '🌹', '⭐', '💕', '🦋'][Math.floor(Math.random() * 7)];
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 12000);
+        }, 3000);
+
+        const specialImg = document.getElementById('specialSurpriseImg');
+        specialImg.onerror = function() { this.src = 'https://placehold.co/400x400/ffdae6/c75c7e?text=Mon+Amour+Infini'; };
+    });
+
+    console.log("%c✨✨✨ Site créé avec tout mon amour pour Mame Fatou ✨✨✨", "color: #ff5f86; font-size: 16px; font-weight: bold;");
+</script>
+</body>
+</html>
